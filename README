@@ -1,0 +1,38 @@
+A.The package has been compiled by g++;
+To compile it, use the command below:
+g++ Run.cc Container.cc WordsCutter.cc IDFDict.cc SimilarityCalc.cc -o calc
+
+B.To calculate the similarity between two sentences, use the command below:
+./calc 's1' 's2'
+sample:
+./calc 'c plus plus is agile, robust and powerful'  'java is easy and powerful but not agile'
+where s1 and s2 is the sentence to be compared.
+
+C.There are there dictionaries
+1. stop words.txt  
+It's used to store the meaningless words in English, like 'hello', 'and', 'at'.etc.
+
+2. symbols.txt
+It's used to store the symbols in English,  like ', ',  '.', '!' and so on.
+
+3. idf_dict.txt
+It's used to store the most words' document frequency after training the corpus of tweets.1-3.data
+
+D.To train the corpus ,  use the command below:
+./trainCorpus train_data train_result
+sample:
+./trainCorpus tweets.2.data idf_dict_test.txt
+
+Attention:
+Avoid including ' in s1 and s2 cause it will split the input data.
+It's just initial edition,  you can contact me for more evaluation.For the memory usage, I will use another tool to get the exact data netx time.
+
+Performance:
+a.For the similarity calcuation, normal CPU with memory of 1G is enough.
+It takes about 18s to load all the dictionary into memory,  but the calculation nearly costs 0 seconds.
+b.For the training process,  it needs normal CPU with memory of 2G or more.(Perhaps 1G is OK , but it's slow)
+During the process, it will print the line number being processed currently,  for each document of tweets.1-3.data, 
+there are about 1000000 lines.
+It takes about 1 hour to finish the training. Acturally I am trying to implement a asynchronized method, which is not finished yet.
+
+
