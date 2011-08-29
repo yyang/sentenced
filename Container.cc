@@ -50,7 +50,7 @@ bool Container::include(const string & des)
 	else
 		return false;
 }
-
+/*
 int main()
 {
 	Container con;
@@ -61,4 +61,4 @@ int main()
 	cout<<con.include("+")<<endl;
 	cout<<con.include("^")<<endl;
 	con.release();
-}
+}*/
