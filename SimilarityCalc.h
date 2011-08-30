@@ -24,7 +24,7 @@
 #include"Container.h"
 #include"WordsCutter.h"
 #include"IDFDict.h"
-#define DOCUMENT_NUM_ 10000000
+#define DOCUMENT_NUM_ 19264200
 using namespace std;
 class SimilarityCalc{
 	public:
