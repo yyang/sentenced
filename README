@@ -5,12 +5,19 @@ make trainCorpus
 make clean
 
 B.To calculate the similarity between two sentences, use the command below:
-./calc 's1' 's2'
+./calc
+Then input the sentence A and B 
 sample:
-./calc 'c plus plus is agile, robust and powerful'  'java is easy and powerful but not agile'
-where s1 and s2 is the sentence to be compared.
-Attention:
-Avoid including ' in s1 and s2 cause it will split the input data.
+[root@localhost nlp]# ./calc
+
+Welcome to the sentences' similarity calculation module!
+Input sentence A and B or type quit to exit~
+Loading ...
+Sentence A>Campus hunting is crucial for firms to attract talents
+Sentence B>Talents are crucial for the development of firms
+
+The similarity of 'Campus hunting is crucial for firms to attract talents' and 'Talents are crucial for the development of firms'
+is 0.670192
 
 C.There are three dictionaries
 1. stop words.txt  

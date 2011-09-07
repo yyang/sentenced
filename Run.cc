@@ -22,14 +22,28 @@
 using namespace std;
 int main(int argc, char* argv[])
 {
-	if(argc<2 || strlen(argv[1])==0 || strlen(argv[2])==0)
-	{
-		cout<<"Invaid command, please run it in the format: calc s1 s2"<<endl;
-		return -1;
-	}
-	string a=argv[1];
-	string b=argv[2];
+	string a;
+	string b;
+	double sim;
+	cout<<endl<<"Welcome to the sentences' similarity calculation module!"<<endl;
+	cout<<"Input sentence A and B or type quit to exit~"<<endl;
+	cout<<"Loading ..."<<endl;
 	SimilarityCalc calc;
-	double sim=calc.calc(a, b);
-	cout<<"The similarity of "<<a<<" and "<<b<<" is "<<sim<<endl;
+	while(1)
+	{
+		cout<<"Sentence A>";
+		getline(cin,a);
+		if(a=="quit")
+			break;
+		cout<<"Sentence B>";
+		getline(cin,b);
+		if(b=="quit")
+			break;
+		if( a.length()==0 || b.length()==0)
+			cout<<"Invalid Input!"<<endl;
+		else 
+			sim=calc.calc(a,b);	
+		cout<<endl<<"The similarity of '"<<a<<"'"<<" and '"<<b<<"'"<<endl<<"is "<<sim<<endl;
+	}
+	cout<<"bye~"<<endl;
 }
