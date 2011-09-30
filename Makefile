@@ -7,13 +7,13 @@ CC= g++
 CFLAGS= -O3 -Wall -g
 LDFLAGS= -lm
 
-LOBJECTS= Run.o Container.o WordsCutter.o IDFDict.o SimilarityCalc.o
+LOBJECTS= Run.o Container.o WordsCutter.o IDFDict.o SimilarityCalc.o WordSimilarity.o WordContainer.o
 
-LSOURCE= Run.cc Container.cc WordsCutter.cc IDFDict.cc SimilarityCalc.cc
+LSOURCE= Run.cc Container.cc WordsCutter.cc IDFDict.cc SimilarityCalc.cc WordSimilarity.cc WordContainer
 
-LOBJECTS2= Container.o WordsCutter.o TrainCorpus.o IDFDict.o
+LOBJECTS2= Container.o WordsCutter.o TrainCorpus.o IDFDict.o WordSimilarity.o WordContainer.o
 
-LSOURCE2= Container.cc WordsCutter.cc TrainCorpus.cc IDFDict.cc
+LSOURCE2= Container.cc WordsCutter.cc TrainCorpus.cc IDFDict.cc WordSimilarity.cc WordContainer.cc
 
 calc:	$(LOBJECTS)
 	$(CC) $(CFLAGS) $(LOBJECTS) -o calc $(LDFLAGS)

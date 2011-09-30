@@ -25,7 +25,7 @@ using namespace std;
 const string IDFDict::idf_dict_text="idf_dict.txt";
 bool IDFDict::load(const string& file_path)
 {
-	idf_dict=new map<string,int>();
+	idf_dict=new map<string, int>();
 	ifstream ifs(file_path.c_str());
 	string temp;
 	string word;

@@ -17,6 +17,7 @@
  */
 #include"WordsCutter.h"
 #include<iostream>
+#include"Constant.h"
 using namespace std;
 WordsCutter::WordsCutter(){}
 WordsCutter::~WordsCutter(){}
@@ -24,9 +25,13 @@ void WordsCutter::setStopwords(const Container& stop_words)
 {
 	this->stop_words=stop_words;
 }
-void WordsCutter::setContainer(map<string, int>& src)
+void WordsCutter::setContainer(map<string, int> &src)
 {
 	this->words=&src;
+}
+void WordsCutter::setContainer(map<string, int, WordComp>& src)
+{
+	this->words_beta=&src;
 }
 void WordsCutter::setSymbols(const Container& symbols)
 {
@@ -54,15 +59,31 @@ void WordsCutter::cut(const string & des)
 			i++;
 		if(start<i)
 		{
-		  //cout<<start<<", "<<i<<endl;
+			//cout<<start<<", "<<i<<endl;
 			string s(des.substr(start, i-start).c_str());
 			toLowerCase(s);
-			if(!stop_words.include(s))
+			if(STOPWORD_CHECK)
+			{
+				if(!stop_words.include(s))
+				{
+#if DEBUG_CUT_
+					cout<<s<<" ";
+#endif
+					if(!words)
+						++(*words)[s];
+					else
+						++(*words_beta)[s];
+				}
+			}
+			else
 			{
 #if DEBUG_CUT_
-				cout<<s<<" ";
+					cout<<s<<" ";
 #endif
-				++(*words)[s];
+				if(!words)
+					++(*words)[s];
+				else
+					++(*words_beta)[s];
 			}
 		}
 	}
@@ -70,23 +91,23 @@ void WordsCutter::cut(const string & des)
 	cout<<endl;
 #endif
 }
-/* 
-int main()
-{
-	string des="I like chinese";
-	Container stop_words;
-	Container symbols;
-	stop_words.load("stop words.txt");	
-	symbols.load("symbols.txt");
-	map<string, int> words;
-	WordsCutter cutter;
-	cutter.setStopwords(stop_words);
-	cutter.setSymbols(symbols);
-	cutter.setContainer(words);
-	cutter.cut(des);
-	for(map<string, int>::iterator iter=words.begin();
-			iter!=words.end();
-			iter++)
+/*  
+		int main()
+		{
+		string des="I like chinese chinesees";
+		Container stop_words;
+		Container symbols;
+		stop_words.load("stop words.txt");	
+		symbols.load("symbols.txt");
+		WordContainer words;
+		WordsCutter cutter;
+		cutter.setStopwords(stop_words);
+		cutter.setSymbols(symbols);
+		cutter.setContainer(words);
+		cutter.cut(des);
+		for(map<string, int>::iterator iter=words.getMap()->begin();
+		iter!=words.getMap()->end();
+		iter++)
 		cout<<iter->first<<"-> "<<iter->second<<endl;
 
-}*/
+		}*/

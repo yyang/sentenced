@@ -23,6 +23,7 @@
 #include<locale>
 #include<cctype>
 #include"Container.h"
+#include"WordContainer.h"
 #define DEBUG_CUT_  0
 using namespace std;
 class WordsCutter
@@ -32,10 +33,12 @@ class WordsCutter
 		~WordsCutter();
 		void setStopwords(const Container&);
 		void setSymbols(const Container&);
-		void setContainer(map<string, int>&);
+		void setContainer(map<string, int> &);
+		void setContainer(map<string, int, WordComp>&);
 		void cut(const string &);
 	private:
 		map<string, int>* words;
+		map<string, int, WordComp>* words_beta;
 		Container stop_words;
 		Container symbols;
 		string toLowerCase(string&);
