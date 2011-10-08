@@ -76,6 +76,8 @@ double SimilarityCalc::calc(const string& str_a, const string& str_b)
 			length_a+=pow(v, 2);			
 		}
 	 }
+	 result_a.release();
+	 result_b.release();
 	 if(length_a==0||length_b==0)
 		 return 0;
 	 else
