@@ -37,6 +37,7 @@ class SimilarityCalc{
 		Container symbols;
 		WordsCutter cutter;
 		IDFDict idf_dict;
+		//The mutex_lock to support the multi-thread safety
 		static pthread_mutex_t segment_mutex;
 };
 #endif

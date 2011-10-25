@@ -109,7 +109,7 @@ void * calc_func(void* ptr)
 	double sim=data->calculator->calc(*(data->a), *(data->b));
 	cout<<*(data->a)<<", "<<*(data->b)<<": "<<sim<<endl;
 }
-/*  
+/*   
 int main()
 {
 	
@@ -124,4 +124,5 @@ int main()
 		u.b=&v[i];
 		pthread_create(&thread1, NULL, calc_func, (void*)&u);
 	}
+	while(true);
 }*/

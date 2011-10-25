@@ -4,7 +4,7 @@
 
 .SUFFIXES: .cc .u
 CC= g++
-CFLAGS= -O3 -Wall -g
+CFLAGS= -O3 -Wall -g -lpthread
 LDFLAGS= -lm
 
 LOBJECTS= Run.o Container.o WordsCutter.o IDFDict.o SimilarityCalc.o WordSimilarity.o WordContainer.o

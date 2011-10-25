@@ -44,5 +44,6 @@ class WordsCutter
 		Container symbols;
 		string toLowerCase(string&);
 		bool precise;
+		//To judge whether to do the precise segment or not
 };
 #endif

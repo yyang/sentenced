@@ -39,6 +39,7 @@ void WordsCutter::setSymbols(const Container& symbols)
 }
 void WordsCutter::setPrecise(bool s)
 {
+	//This flag is set manually 
 	if(s)
 		precise=true;
 	else
