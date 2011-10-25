@@ -42,8 +42,10 @@ int main(int argc, char* argv[])
 		if( a.length()==0 || b.length()==0)
 			cout<<"Invalid Input!"<<endl;
 		else 
+		{
 			sim=calc.calc(a,b);	
-		cout<<endl<<"The similarity of '"<<a<<"'"<<" and '"<<b<<"'"<<endl<<"is "<<sim<<endl;
+			cout<<endl<<"The similarity of '"<<a<<"'"<<" and '"<<b<<"'"<<endl<<"is "<<sim<<endl;
+		}
 	}
 	cout<<"bye~"<<endl;
 }

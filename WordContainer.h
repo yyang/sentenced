@@ -25,7 +25,7 @@ using namespace std;
 struct WordComp{
 	bool operator()(const string& word1, const string& word2)const
 	{
-		return (WordSimilarity::calc(word1, word2)<=MINIMUM_WORD_SIMILARITY && word1<word2);	
+		return (WordSimilarity::calc(word1, word2)<MINIMUM_WORD_SIMILARITY && word1<word2);	
 		//  return word1<word2;
 	}
 };
