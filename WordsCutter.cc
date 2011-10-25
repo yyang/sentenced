@@ -19,7 +19,7 @@
 #include<iostream>
 #include"Constant.h"
 using namespace std;
-WordsCutter::WordsCutter(){}
+WordsCutter::WordsCutter(){precise=true;}
 WordsCutter::~WordsCutter(){}
 void WordsCutter::setStopwords(const Container& stop_words)
 {
@@ -36,6 +36,13 @@ void WordsCutter::setContainer(map<string, int, WordComp>& src)
 void WordsCutter::setSymbols(const Container& symbols)
 {
 	this->symbols=symbols;
+}
+void WordsCutter::setPrecise(bool s)
+{
+	if(s)
+		precise=true;
+	else
+		precise=false;
 }
 string WordsCutter::toLowerCase(string & src)
 {
@@ -69,7 +76,7 @@ void WordsCutter::cut(const string & des)
 #if DEBUG_CUT_
 					cout<<s<<" ";
 #endif
-					if(!words)
+					if(precise)
 						++(*words)[s];
 					else
 						++(*words_beta)[s];
@@ -78,9 +85,9 @@ void WordsCutter::cut(const string & des)
 			else
 			{
 #if DEBUG_CUT_
-					cout<<s<<" ";
+				cout<<s<<" ";
 #endif
-				if(!words)
+				if(precise)
 					++(*words)[s];
 				else
 					++(*words_beta)[s];

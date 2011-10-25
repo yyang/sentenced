@@ -24,6 +24,7 @@
 #include"Container.h"
 #include"WordsCutter.h"
 #include"IDFDict.h"
+#include<pthread.h>//use pthread_mutex_lock to support multithread safety
 #define DOCUMENT_NUM_ 19264200
 using namespace std;
 class SimilarityCalc{
@@ -36,5 +37,6 @@ class SimilarityCalc{
 		Container symbols;
 		WordsCutter cutter;
 		IDFDict idf_dict;
+		static pthread_mutex_t segment_mutex;
 };
 #endif

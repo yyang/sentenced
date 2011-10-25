@@ -35,6 +35,7 @@ class WordsCutter
 		void setSymbols(const Container&);
 		void setContainer(map<string, int> &);
 		void setContainer(map<string, int, WordComp>&);
+		void setPrecise(bool);
 		void cut(const string &);
 	private:
 		map<string, int>* words;
@@ -42,5 +43,6 @@ class WordsCutter
 		Container stop_words;
 		Container symbols;
 		string toLowerCase(string&);
+		bool precise;
 };
 #endif
